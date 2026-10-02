@@ -1,0 +1,61 @@
+SELECT COUNT(*) AS total_employees
+FROM employees;
+
+SELECT SUM(salary) AS total_salary
+FROM employees;
+
+SELECT AVG(salary) AS average_salary
+FROM employees;
+
+SELECT MIN(salary) AS lowest_salary
+FROM employees;
+
+SELECT
+    COUNT(*) AS total_employees,
+    SUM(salary) AS total_salary,
+    AVG(salary) AS average_salary,
+    MAX(salary) AS highest_salary,
+    MIN(salary) AS lowest_salary
+FROM employees;
+
+SELECT dept_id,
+       COUNT(*) AS employee_count,
+       SUM(salary) AS total_salary,
+       AVG(salary) AS average_salary
+FROM employees
+GROUP BY dept_id;
+
+SELECT dept_id,
+       AVG(salary) AS average_salary
+FROM employees
+GROUP BY dept_id
+HAVING AVG(salary) > 40000;
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_total NUMBER;
+    v_average NUMBER;
+    v_highest NUMBER;
+    v_lowest NUMBER;
+BEGIN
+    SELECT SUM(salary),
+           AVG(salary),
+           MAX(salary),
+           MIN(salary)
+    INTO v_total,
+         v_average,
+         v_highest,
+         v_lowest
+    FROM employees;
+
+    DBMS_OUTPUT.PUT_LINE('Total Salary   : ' || v_total);
+    DBMS_OUTPUT.PUT_LINE('Average Salary : ' || v_average);
+    DBMS_OUTPUT.PUT_LINE('Highest Salary : ' || v_highest);
+    DBMS_OUTPUT.PUT_LINE('Lowest Salary  : ' || v_lowest);
+END;
+
+
+
+
+
