@@ -1,0 +1,6 @@
+ALTER TABLE Students
+ADD email VARCHAR(100);
+UPDATE Students
+SET age = 21
+WHERE id = 1;
+
