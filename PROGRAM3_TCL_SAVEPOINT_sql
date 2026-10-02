@@ -1,0 +1,4 @@
+ALTER TABLE Students
+ADD email VARCHAR(100);
+SAVEPOINT: Create a point to which you can roll back
+SAVEPOINT sp1;
