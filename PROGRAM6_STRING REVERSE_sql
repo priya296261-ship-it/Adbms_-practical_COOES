@@ -1,0 +1,6 @@
+SELECT REVERSE('HELLO');
+SELECT REVERSE('RAHUL');
+SELECT name, REVERSE(name) AS reverse_name
+FROM Students;
+SELECT REVERSE('WELCOME TO SQL') AS reverse_text;
+
