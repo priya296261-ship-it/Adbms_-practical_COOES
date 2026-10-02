@@ -1,0 +1,21 @@
+DELIMITER //
+
+CREATE PROCEDURE Fibonacci(IN n INT)
+BEGIN
+    DECLARE a INT DEFAULT 0;
+    DECLARE b INT DEFAULT 1;
+    DECLARE c INT;
+    DECLARE i INT DEFAULT 1;
+
+    WHILE i <= n DO
+        SELECT a;
+        SET c = a + b;
+        SET a = b;
+        SET b = c;
+        SET i = i + 1;
+    END WHILE;
+END //
+
+DELIMITER ;
+
+CALL Fibonacci(10);
