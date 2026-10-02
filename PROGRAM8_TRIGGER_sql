@@ -1,0 +1,14 @@
+CREATE TABLE Student_Log (
+    id NUMBER,
+    name VARCHAR2(50)
+);
+
+Then create the trigger:
+
+CREATE OR REPLACE TRIGGER student_after_delete
+AFTER DELETE ON Students
+FOR EACH ROW
+BEGIN
+    INSERT INTO Student_Log (id, name)
+    VALUES (:OLD.id, :OLD.name);
+END;
