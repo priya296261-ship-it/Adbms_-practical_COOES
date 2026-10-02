@@ -1,0 +1,98 @@
+CREATE TABLE departments (
+    dept_id NUMBER PRIMARY KEY,
+    dept_name VARCHAR2(30)
+);
+
+CREATE TABLE employees (
+    emp_id NUMBER PRIMARY KEY,
+    emp_name VARCHAR2(30),
+    salary NUMBER,
+    dept_id NUMBER
+);
+
+INSERT INTO departments VALUES (10, 'HR');
+INSERT INTO departments VALUES (20, 'IT');
+INSERT INTO departments VALUES (30, 'SALES');
+INSERT INTO departments VALUES (40, 'FINANCE');
+
+INSERT INTO employees VALUES (101, 'Ravi', 30000, 10);
+INSERT INTO employees VALUES (102, 'Priya', 45000, 20);
+INSERT INTO employees VALUES (103, 'Arun', 35000, 20);
+INSERT INTO employees VALUES (104, 'Meena', 40000, 30);
+INSERT INTO employees VALUES (105, 'Kumar', 50000, NULL);
+
+COMMIT;
+
+SELECT e.emp_id,
+       e.emp_name,
+       e.salary,
+       d.dept_name
+FROM employees e
+INNER JOIN departments d
+ON e.dept_id = d.dept_id;
+
+SELECT e.emp_id,
+       e.emp_name,
+       d.dept_name
+FROM employees e
+LEFT JOIN departments d
+ON e.dept_id = d.dept_id;
+
+SELECT e.emp_name,
+       d.dept_id,
+       d.dept_name
+FROM employees e
+RIGHT JOIN departments d
+ON e.dept_id = d.dept_id;
+
+SELECT e.emp_name,
+       e.dept_id AS employee_dept,
+       d.dept_id AS department_dept,
+       d.dept_name
+FROM employees e
+FULL OUTER JOIN departments d
+ON e.dept_id = d.dept_id;
+
+SELECT e.emp_name,
+       e.salary,
+       d.dept_name
+FROM employees e
+JOIN departments d
+ON e.dept_id = d.dept_id
+WHERE d.dept_name = 'IT';
+
+SET SERVEROUTPUT ON;
+
+BEGIN
+    FOR r IN (
+        SELECT e.emp_name,
+               e.salary,
+               d.dept_name
+        FROM employees e
+        JOIN departments d
+        ON e.dept_id = d.dept_id
+    )
+    LOOP
+        DBMS_OUTPUT.PUT_LINE(
+            'Name: ' || r.emp_name ||
+            ', Salary: ' || r.salary ||
+            ', Department: ' || r.dept_name
+        );
+    END LOOP;
+END;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
