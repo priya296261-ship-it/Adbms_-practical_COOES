@@ -1,0 +1,19 @@
+DELIMITER //
+
+CREATE PROCEDURE SumSeries(IN n INT)
+BEGIN
+    DECLARE total INT DEFAULT 0;
+    DECLARE i INT DEFAULT 1;
+
+    WHILE i <= n DO
+        SET total = total + i;
+        SET i = i + 1;
+    END WHILE;
+
+    SELECT total AS Sum_Of_Series;
+END //
+
+DELIMITER ;
+
+CALL SumSeries(10);
+
