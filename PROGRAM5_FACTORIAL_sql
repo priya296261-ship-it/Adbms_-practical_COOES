@@ -1,0 +1,19 @@
+DELIMITER //
+
+CREATE PROCEDURE factorial(IN n INT)
+BEGIN
+    DECLARE fact INT DEFAULT 1;
+    DECLARE i INT DEFAULT 1;
+
+    WHILE i <= n DO
+        SET fact = fact * i;
+        SET i = i + 1;
+    END WHILE;
+
+    SELECT fact AS Factorial;
+END //
+
+DELIMITER ;
+
+CALL factorial(5);
+
