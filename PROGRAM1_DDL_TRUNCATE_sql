@@ -1,0 +1,5 @@
+ALTER TABLE Students
+ADD email VARCHAR(100);
+TRUNCATE TABLE StudentDetails;
+
+
