@@ -1,0 +1,4 @@
+ALTER TABLE Students
+ADD email VARCHAR(100);
+INSERT INTO Students (id, name, age, email)
+VALUES (1, 'Rahul', 20, 'rahul@gmail.com');
