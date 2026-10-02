@@ -1,0 +1,4 @@
+ALTER TABLE Students
+ADD email VARCHAR(100);
+RENAME TABLE Students TO StudentDetails;
+
