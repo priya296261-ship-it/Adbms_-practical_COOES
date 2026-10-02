@@ -1,0 +1,39 @@
+SELECT emp_name, salary,
+       ROUND(salary, -3) AS rounded_salary
+FROM employees;
+
+SELECT emp_name,
+       salary,
+       TRUNC(salary, -3) AS truncated_salary
+FROM employees;
+
+SELECT CEIL(45.25) AS result
+FROM dual;
+
+SELECT FLOOR(45.75) AS result
+FROM dual;
+
+SELECT MOD(25, 4) AS remainder
+FROM dual;
+
+SELECT ABS(-250) AS result
+FROM dual;
+
+SELECT POWER(5, 2) AS result
+FROM dual;
+
+SELECT SQRT(144) AS result
+FROM dual;
+
+SELECT SIGN(-50) AS result
+FROM dual;
+
+SELECT
+    ROUND(125.678, 2) AS rounded,
+    TRUNC(125.678, 2) AS truncated,
+    CEIL(125.678) AS ceiling,
+    FLOOR(125.678) AS floor_value,
+    MOD(125, 10) AS remainder,
+    ABS(-125) AS absolute_value
+FROM dual;
+
