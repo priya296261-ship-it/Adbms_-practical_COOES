@@ -1,0 +1,32 @@
+CREATE TABLE Students1 (
+    id NUMBER,
+    name VARCHAR2(50)
+);
+
+CREATE TABLE Students2 (
+    id NUMBER,
+    name VARCHAR2(50)
+);
+
+INSERT INTO Students1 VALUES (1, 'Rahul');
+INSERT INTO Students1 VALUES (2, 'Priya');
+INSERT INTO Students1 VALUES (3, 'Arun');
+
+INSERT INTO Students2 VALUES (2, 'Priya');
+INSERT INTO Students2 VALUES (3, 'Arun');
+INSERT INTO Students2 VALUES (4, 'Kiran');
+
+COMMIT;
+SELECT id, name FROM Students1
+UNION
+SELECT id, name FROM Students2;
+SELECT id, name FROM Students1
+UNION ALL
+SELSELECT id, name FROM Students1
+INTERSECT
+SELECT id, name FROM Students2;
+SELECT id, name FROM Students1
+MINUS
+SELECT id, name FROM Students2;
+
+
